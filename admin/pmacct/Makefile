@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=pmacct
-PKG_VERSION:=0.14.0
+PKG_VERSION:=1.6.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://www.pmacct.net/
-PKG_MD5SUM:=4588531f0e8033fe82ad7fb22d1bbdb7
+PKG_MD5SUM:=5dc1dab96fbd3937b49152d1bdc2913f
 
 PKG_BUILD_DEPENDS:=libpcap
 
@@ -36,22 +36,26 @@ endef
 
 define Package/pmacct-client
   $(call Package/pmacct/Default)
+  DEPENDS:=+zlib +libpcap
   TITLE:=Command-line client to gather data from the IMT plugin
   VARIANT:=basic
 endef
 
 define Package/nfacctd/Default
   $(call Package/pmacct/Default)
+  DEPENDS:=+zlib +libpcap
   TITLE:=NetFlow accounting daemon
 endef
 
 define Package/pmacctd/Default
   $(call Package/pmacct/Default)
+  DEPENDS:=+zlib +libpcap
   TITLE:=IP pcap-based accounting daemon
 endef
 
 define Package/sfacctd/Default
   $(call Package/pmacct/Default)
+  DEPENDS:=+zlib +libpcap
   TITLE:=sFlow accounting daemon
 endef
 
