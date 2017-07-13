@@ -73,6 +73,8 @@ define Package/vtun/install
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/vtund.conf $(1)/etc/
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/vtund $(1)/usr/sbin/
+	$(INSTALL_DIR) $(1)/etc
+	$(INSTALL_CONF) ./files/rc.vtund $(1)/etc/rc.vtund
 endef
 
 $(eval $(call BuildPackage,vtun))
