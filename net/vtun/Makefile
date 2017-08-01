@@ -8,19 +8,19 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=vtun
-PKG_VERSION:=3.0.2
-PKG_RELEASE:=1
+PKG_VERSION:=3.0.3
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=@SF/vtun
-PKG_MD5SUM:=d3d8bc4d58886498a1c338670eab9315
+PKG_MD5SUM:=f3becf2a0270910a841060c08d1db824
 
 include $(INCLUDE_DIR)/package.mk
 
 define Package/vtun
   SECTION:=net
   CATEGORY:=Network
-  DEPENDS:=+kmod-tun +VTUN_LZO:liblzo +VTUN_LZO:zlib +VTUN_SSL:libopenssl
+  DEPENDS:=+kmod-tun +VTUN_LZO:liblzo +VTUN_LZO:zlib +VTUN_SSL:libopenssl +libbsd
   TITLE:=VPN tunneling daemon
   URL:=http://vtun.sourceforge.net
   SUBMENU:=VPN
@@ -75,6 +75,10 @@ define Package/vtun/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/vtund $(1)/usr/sbin/
 	$(INSTALL_DIR) $(1)/etc
 	$(INSTALL_CONF) ./files/rc.vtund $(1)/etc/rc.vtund
+	$(INSTALL_DIR) $(1)/etc/init.d
+	$(INSTALL_BIN) ./files/vtund.init $(1)/etc/init.d/vtund
+	$(INSTALL_DIR) $(1)/etc/ppp
+	$(INSTALL_BIN) ./files/checkvpn.sh $(1)/etc/ppp/checkvpn.sh
 	$(INSTALL_DIR) $(1)/etc
 	$(INSTALL_CONF) ./files/vtund.conf $(1)/etc/vtund.conf
 endef
