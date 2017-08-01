@@ -50,9 +50,6 @@ start_service() {
 				checkvpn_add_instance "$CIP" "$CDEV"
 				echo "CheckVPN pro $HOST -> $CIP, $CDEV"
 			fi
-
-                else
-                        echo "Nic ke spusteni";
                 fi
         done < /etc/rc.vtund
 }
