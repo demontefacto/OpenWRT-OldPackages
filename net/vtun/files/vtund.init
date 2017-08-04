@@ -30,8 +30,8 @@ checkvpn_add_instance() {
 
 	procd_open_instance
 	procd_set_param command "$PROGCVPN" \
-		"$IP" \
-		"$DEV"
+		"$DEV" \
+		"$IP"
 	procd_close_instance
 }
 
