@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=vtun
-PKG_VERSION:=3.0.3
+PKG_VERSION:=3.0.2
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=@SF/vtun
-PKG_MD5SUM:=f3becf2a0270910a841060c08d1db824
+PKG_MD5SUM:=d3d8bc4d58886498a1c338670eab9315
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -32,7 +32,6 @@ menu "Configuration"
         depends on PACKAGE_vtun
 
 config VTUN_config
-	bool
 
 	depends on PACKAGE_vtun
 	config VTUN_LZO
@@ -51,6 +50,8 @@ endef
 
 define Package/vtun/conffiles
 /etc/vtund.conf
+/etc/rc.vtund
+/etc/ppp/checkvpn.sh
 endef
 
 CONFIGURE_ARGS += \
