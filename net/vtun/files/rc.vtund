@@ -1,3 +1,6 @@
-# Pouziti: 
-###### Navazani tunelu ######### ####### CheckVPN #########
-# nazev_tunelu ip_adresa_serveru opingavana_ip_adresa tunel
+#!!!! posledni popsany radek MUSI byt ukonceny ENTERem!!!!
+
+#Priklad
+############### Navazani tunelu #################	######## Check VPN ##########
+#Nazev tunelu			IP adresa serveru	IP adresa protistrany	TUNEL
+#ov-ha-velinternet-kocvara	213.195.253.1		10.255.255.1		tun0
