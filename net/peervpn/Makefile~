@@ -24,7 +24,7 @@ define Package/peervpn
   SUBMENU:=VPN
   TITLE:=PeerVPN the open source peer-to-peer VPN
   URL:=http://www.peervpn.net/
-  DEPENDS:=+libopenssl +ip +zlib
+  DEPENDS:=+libopenssl +ip +libz
 endef
 
 define Package/peervpn/description
